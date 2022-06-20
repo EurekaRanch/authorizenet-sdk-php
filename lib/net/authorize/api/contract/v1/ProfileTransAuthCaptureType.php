@@ -5,7 +5,7 @@ namespace net\authorize\api\contract\v1;
 /**
  * Class representing ProfileTransAuthCaptureType
  *
- * 
+ *
  * XSD Type: profileTransAuthCaptureType
  */
 class ProfileTransAuthCaptureType extends ProfileTransOrderType implements \JsonSerializable
@@ -13,6 +13,7 @@ class ProfileTransAuthCaptureType extends ProfileTransOrderType implements \Json
 
 
     // Json Serialize Code
+    #[\ReturnTypeWillChange]
     public function jsonSerialize(){
         $values = array_filter((array)get_object_vars($this),
         function ($val){
@@ -49,7 +50,7 @@ class ProfileTransAuthCaptureType extends ProfileTransOrderType implements \Json
 			$mapper = \net\authorize\util\Mapper::Instance();
 			foreach($data AS $key => $value) {
 				$classDetails = $mapper->getClass(get_class() , $key);
-	 
+
 				if($classDetails !== NULL ) {
 					if ($classDetails->isArray) {
 						if ($classDetails->isCustomDefined) {
@@ -89,6 +90,6 @@ class ProfileTransAuthCaptureType extends ProfileTransOrderType implements \Json
 			}
 		}
     }
-    
+
 }
 

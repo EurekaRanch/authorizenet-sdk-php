@@ -5,7 +5,7 @@ namespace net\authorize\api\contract\v1;
 /**
  * Class representing CustomerProfileExType
  *
- * 
+ *
  * XSD Type: customerProfileExType
  */
 class CustomerProfileExType extends CustomerProfileBaseType implements \JsonSerializable
@@ -40,6 +40,7 @@ class CustomerProfileExType extends CustomerProfileBaseType implements \JsonSeri
 
 
     // Json Serialize Code
+    #[\ReturnTypeWillChange]
     public function jsonSerialize(){
         $values = array_filter((array)get_object_vars($this),
         function ($val){
@@ -76,7 +77,7 @@ class CustomerProfileExType extends CustomerProfileBaseType implements \JsonSeri
 			$mapper = \net\authorize\util\Mapper::Instance();
 			foreach($data AS $key => $value) {
 				$classDetails = $mapper->getClass(get_class() , $key);
-	 
+
 				if($classDetails !== NULL ) {
 					if ($classDetails->isArray) {
 						if ($classDetails->isCustomDefined) {
@@ -116,6 +117,6 @@ class CustomerProfileExType extends CustomerProfileBaseType implements \JsonSeri
 			}
 		}
     }
-    
+
 }
 
