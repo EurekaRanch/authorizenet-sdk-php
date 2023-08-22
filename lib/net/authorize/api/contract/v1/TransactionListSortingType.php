@@ -5,7 +5,7 @@ namespace net\authorize\api\contract\v1;
 /**
  * Class representing TransactionListSortingType
  *
- * 
+ *
  * XSD Type: TransactionListSorting
  */
 class TransactionListSortingType implements \JsonSerializable
@@ -67,6 +67,7 @@ class TransactionListSortingType implements \JsonSerializable
 
 
     // Json Serialize Code
+    #[\ReturnTypeWillChange]
     public function jsonSerialize(){
         $values = array_filter((array)get_object_vars($this),
         function ($val){
@@ -95,7 +96,7 @@ class TransactionListSortingType implements \JsonSerializable
         }
         return $values;
     }
-    
+
     // Json Set Code
     public function set($data)
     {
@@ -103,7 +104,7 @@ class TransactionListSortingType implements \JsonSerializable
 			$mapper = \net\authorize\util\Mapper::Instance();
 			foreach($data AS $key => $value) {
 				$classDetails = $mapper->getClass(get_class() , $key);
-	 
+
 				if($classDetails !== NULL ) {
 					if ($classDetails->isArray) {
 						if ($classDetails->isCustomDefined) {
@@ -143,6 +144,6 @@ class TransactionListSortingType implements \JsonSerializable
 			}
 		}
     }
-    
+
 }
 

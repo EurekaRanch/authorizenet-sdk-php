@@ -5,7 +5,7 @@ namespace net\authorize\api\contract\v1;
 /**
  * Class representing ContactDetailType
  *
- * 
+ *
  * XSD Type: ContactDetailType
  */
 class ContactDetailType implements \JsonSerializable
@@ -94,6 +94,7 @@ class ContactDetailType implements \JsonSerializable
 
 
     // Json Serialize Code
+    #[\ReturnTypeWillChange]
     public function jsonSerialize(){
         $values = array_filter((array)get_object_vars($this),
         function ($val){
@@ -122,7 +123,7 @@ class ContactDetailType implements \JsonSerializable
         }
         return $values;
     }
-    
+
     // Json Set Code
     public function set($data)
     {
@@ -130,7 +131,7 @@ class ContactDetailType implements \JsonSerializable
 			$mapper = \net\authorize\util\Mapper::Instance();
 			foreach($data AS $key => $value) {
 				$classDetails = $mapper->getClass(get_class() , $key);
-	 
+
 				if($classDetails !== NULL ) {
 					if ($classDetails->isArray) {
 						if ($classDetails->isCustomDefined) {
@@ -170,6 +171,6 @@ class ContactDetailType implements \JsonSerializable
 			}
 		}
     }
-    
+
 }
 
